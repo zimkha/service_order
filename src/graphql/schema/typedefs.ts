@@ -1,7 +1,9 @@
 import { gql } from 'apollo-server-express';
 
 
-export default gql  `
+
+export default gql`
+scalar Date
   type Order {
     id: String!
     drugs: [Drugs]!
@@ -14,22 +16,22 @@ export default gql  `
       name: String!
       frequency: String!
       tags: String!
-      TobeCareful: String
+      TobeCareful: String!
   }
   
   type MessageInfo {
     messagecreated: String
-    messagedeleted: String!
+    messagedeleted: String
   }
  
    extend type Query  {
-      orders: [Order]!
-      order (id: ObjectId!) : [Order]!
-      orderByAttribut(tabAttribut: any): [Order]!
+      orders:[Order]
+      order(id: String) : Order
+      orderByAttribut(tabAttribut): [Order]
    }
    extend type Mutation {
-       createOrder(): Ordrer
-       deleteOrder(id: ObjectId!): Order
-       updatedOrder(id: ObjectId! , data: any): Order
+       createOrder(data:any): Order
+       deleteOrder(id: String): Order
+       updatedOrder(id: String! , data): Order
    }
 `;

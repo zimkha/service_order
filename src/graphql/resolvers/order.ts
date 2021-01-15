@@ -67,7 +67,7 @@ export default {
          * @param context 
          * @param info 
          */
-        async createOrder(parent: any, data: any, context: String, info: String){
+        async createOrder(data: any){
              try {
                  // Declarion de l'object  
                  if(data){

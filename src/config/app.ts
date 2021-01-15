@@ -10,6 +10,7 @@ import resolvers from '../graphql/resolvers/index';
 const env = config.get('env') as string;
 const port = config.get('PORT') as number;
 const db = config.get('MONGO_URL') as string;
+const path = '/graphql';
 export function start(){
    const app: Application = express();
     try{
@@ -34,8 +35,9 @@ export function start(){
           connectDB();
         
           const server = new ApolloServer({ typeDefs,  resolvers: resolvers as any  });
-          // server.getMiddleware{}
-       // app.listen(port,()=>consola.info(`Server running on port ${port}`))
+       
+          server.applyMiddleware({ app, path });
+         app.listen(port,()=>consola.info(`Server running on port ${port}`))
     }catch(e){
         throw new Error(e.message);
     }
