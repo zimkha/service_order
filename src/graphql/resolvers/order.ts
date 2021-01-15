@@ -106,8 +106,9 @@ export default {
       async updatedOrder(id: String, data: any) {
           try {
               // TODO:
+              // the data object that the sending front must comply with the structure of the Order model
               if(data){
-                  return Order.findByIdAndUpdate(_id: id, { $set: data }, { new: true });
+                  return Order.findByIdAndUpdate(id, { $set: data }, { new: true });
               }
           } catch (error) {
               throw new Error(error);
