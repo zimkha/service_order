@@ -3,7 +3,7 @@ import { gql } from 'apollo-server-express';
 
 export default gql  `
   type Order {
-    id: ID!
+    id: String!
     drugs: [Drugs]!
     patient: String!
     medecin: String!
@@ -23,13 +23,13 @@ export default gql  `
   }
  
    extend type Query  {
-      orders: [Order]
-      order (id: ID) : [Order]
-      orderByAttribut(): [Order]
+      orders: [Order]!
+      order (id: ObjectId!) : [Order]!
+      orderByAttribut(tabAttribut: any): [Order]!
    }
    extend type Mutation {
        createOrder(): Ordrer
-       deleteOrder(id: ID): Boolean
-       updatedOrder(): Order
+       deleteOrder(id: ObjectId!): Order
+       updatedOrder(id: ObjectId! , data: any): Order
    }
 `;

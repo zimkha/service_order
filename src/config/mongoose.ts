@@ -1,5 +1,5 @@
 const config = {
-    MONGODB: "mongodb://admin:admin123@ds031319.mlab.com:31319/graphqlnode",
+    MONGODB: "mongodb://localhost:27017/order_service",
     ENV : "dev",
     PORT: 4000
   };

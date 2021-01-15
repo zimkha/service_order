@@ -1,8 +1,8 @@
 import { model, Schema, ObjectId } from "mongoose";
 
 const orderSchema = new Schema({
-  _id : {type: Number},
-  drugs: {type: {
+    _id : {type: String},
+    drugs: {type: {
     name: {type: String},
     frequency: {type: String},
     tags: {type: String},
