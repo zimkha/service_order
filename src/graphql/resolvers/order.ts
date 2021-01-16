@@ -3,9 +3,7 @@ import {isEmpty} from './helper';
 
 export default {
     Query: {
-        /**
-         * 
-         */
+      
         async getOrders(){
             try{
                 const orders = Order.find();

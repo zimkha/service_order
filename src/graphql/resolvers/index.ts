@@ -1,7 +1,7 @@
 import orderResolver from './order';
 import {IResolvers} from 'graphql-tools';
 
-const resolvers: IResolvers =  {
+const resolvers =  {
     Query: {
         ...orderResolver.Query 
     },
